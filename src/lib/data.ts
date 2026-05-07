@@ -46,10 +46,13 @@ export const skillGroups: SkillGroup[] = [
       "Python",
       "Django",
       "Django REST Framework",
+      "Django Channels (WebSockets)",
+      "FastAPI",
       "Node.js",
       "REST API Design",
-      "JWT Auth",
+      "JWT Auth / RBAC",
       "Celery (Async tasks)",
+      "MQTT (paho-mqtt)",
     ],
   },
   {
@@ -68,6 +71,8 @@ export const skillGroups: SkillGroup[] = [
     icon: "wrench",
     skills: [
       "Git / GitHub",
+      "Docker / Docker Compose",
+      "GitHub Actions (CI)",
       "npm",
       "Postman",
       "Figma → Code",
@@ -120,6 +125,32 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: "Inverter Shipment Tracking & Installation Portal",
+    description:
+      "Full-stack portal for tracking inverter shipments and installation jobs end-to-end — from dispatch to on-site commissioning checklists. FastAPI backend with role-based access control and a Next.js frontend that generates installation/shipping PDFs in-browser.",
+    highlights: [
+      "FastAPI + SQLAlchemy backend with Alembic migrations and a pytest test suite",
+      "RBAC permission layer and configurable installation-checklist templates",
+      "Background workers for long-running jobs and a Postman collection for API smoke-tests",
+      "Next.js frontend with a dedicated PDF-generator module for shipping and install docs",
+      "Dockerized dev/prod stacks (docker-compose.dev / .prod) with GitHub Actions CI",
+    ],
+    stack: [
+      "FastAPI",
+      "SQLAlchemy",
+      "Alembic",
+      "PostgreSQL",
+      "Docker",
+      "Next.js",
+      "React",
+      "Tailwind",
+    ],
+    backend:
+      "https://github.com/Tarun-120/inverter-Shippment-Tracking-Installing-portal-backend",
+    frontend:
+      "https://github.com/Tarun-120/inverter-Shippment-Tracking-Installing-portal",
+  },
+  {
     title: "Daily Report Portal",
     description:
       "Internal reporting platform with a two-service Python backend — Django handles schema + admin, FastAPI serves a typed JSON API to a Next.js SPA. Both services share a single PostgreSQL database, fully containerized with Docker Compose.",
@@ -167,15 +198,30 @@ export const projects: Project[] = [
   {
     title: "Solar Inverter Power Analytics",
     description:
-      "Analytics dashboard for solar inverter power-generation data. Visualizes generation curves, daily/monthly aggregates, and per-inverter performance to help operations teams spot underperforming assets.",
+      "IoT-driven analytics platform for solar inverters. A Django backend ingests live telemetry from a Mosquitto MQTT broker, persists 15-minute interval time-series data in PostgreSQL, and pushes updates to a Next.js dashboard over WebSockets.",
     highlights: [
-      "Time-series charts for generation, irradiance, and efficiency",
-      "Filterable views by site, inverter, and date range",
-      "Responsive layout — works on field tablets and ops desktops",
-      "Component-driven Next.js architecture with reusable chart primitives",
+      "Django + DRF backend with Django Channels for real-time WebSocket updates",
+      "MQTT ingest pipeline (Mosquitto + paho-mqtt) for live inverter telemetry",
+      "PostgreSQL schema tuned for 15-minute interval time-series — no TimescaleDB / Redis needed",
+      "JWT auth via SimpleJWT, plus a chatbot module for plain-language data queries",
+      "Next.js frontend with time-series charts, filterable by site, inverter, and date range",
+      "Dockerized stack with deployment guide for AWS",
     ],
-    stack: ["Next.js", "React", "JavaScript", "Tailwind", "Chart libraries"],
-    github: "https://github.com/Tarun-120/Inverter-power-genration-analytic-app",
+    stack: [
+      "Django",
+      "DRF",
+      "Django Channels",
+      "MQTT",
+      "PostgreSQL",
+      "JWT",
+      "Next.js",
+      "React",
+      "Tailwind",
+    ],
+    backend:
+      "https://github.com/Tarun-120/Inverter-power-genration-analytic-app-backend",
+    frontend:
+      "https://github.com/Tarun-120/Inverter-power-genration-analytic-app",
   },
   {
     title: "This Portfolio",
