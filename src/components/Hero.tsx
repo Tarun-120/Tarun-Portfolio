@@ -91,6 +91,7 @@ export default function Hero() {
             </a>
             <a
               href={personalInfo.resumeUrl}
+              download="Tarun_Singh_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[var(--border)] hover:border-[var(--accent)] text-[var(--foreground)] font-medium transition-colors"
